@@ -3,7 +3,7 @@ import os
 import multiprocessing
 from pathlib import Path
 from PySide6.QtCore import QStandardPaths
-from PySide6.QtGui import QGuiApplication
+from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtQuickControls2 import QQuickStyle
 from core.database import DatabaseManager
@@ -19,6 +19,7 @@ def main():
     app.setApplicationName("LYNXAtlas")
     app.setApplicationDisplayName("LYNX Atlas")
     app.setOrganizationName("LYNX")
+    app.setWindowIcon(QIcon(str(Path(__file__).resolve().parent / "assets" / "icons" / "lynx-atlas_256.png")))
 
     # Program Files não permite escrita por usuários comuns. No Windows, o
     # índice pertence ao usuário e fica em %LOCALAPPDATA%\LYNX\LYNXAtlas.

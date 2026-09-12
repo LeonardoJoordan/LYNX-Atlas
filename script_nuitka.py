@@ -22,17 +22,6 @@ def _run(command: list[str], cwd: Path) -> None:
     subprocess.run(command, cwd=cwd, check=True)
 
 
-def _create_windows_icon(source: Path, destination: Path) -> Path:
-    """Cria o ICO do executável/instalador usando o PNG do projeto."""
-    from PySide6.QtGui import QImage
-
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    image = QImage(str(source))
-    if image.isNull() or not image.save(str(destination), "ICO"):
-        raise RuntimeError(f"Não foi possível converter {source.name} para ICO")
-    return destination
-
-
 def _package_zip(output_dir: Path) -> None:
     dist_candidates = (
         output_dir / f"{EXECUTABLE_NAME}.dist",
@@ -69,7 +58,9 @@ def build_app() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     try:
-        icon = _create_windows_icon(base_dir / "icone.png", base_dir / "build" / "icone.ico")
+        icon = base_dir / "assets" / "icons" / "lynx-atlas.ico"
+        if not icon.is_file():
+            raise FileNotFoundError(f"Ícone do Windows não encontrado: {icon}")
         command = [
             sys.executable,
             "-m", "nuitka",
@@ -78,7 +69,7 @@ def build_app() -> int:
             "--include-qt-plugins=imageformats,platforms,styles",
             "--include-package=core",
             f"--include-data-dir={base_dir / 'ui'}=ui",
-            f"--include-data-files={base_dir / 'icone.png'}=icone.png",
+            f"--include-data-dir={base_dir / 'assets'}=assets",
             f"--include-data-files={base_dir / 'LICENSE'}=LICENSE",
             f"--include-data-files={base_dir / 'README.md'}=README.md",
             f"--include-data-files={base_dir / 'THIRD_PARTY_NOTICES.md'}=THIRD_PARTY_NOTICES.md",

@@ -5,7 +5,7 @@ Este documento é um checklist técnico, não aconselhamento jurídico.
 ## Antes de publicar o repositório
 
 - Confirmar que todo o código próprio pode ser publicado sob AGPL-3.0-only.
-- Confirmar a titularidade ou permissão de uso de `icone.png`, nome e identidade visual.
+- Confirmar a titularidade ou permissão de uso dos arquivos em `assets/icons`, do nome e da identidade visual.
 - Não versionar bancos SQLite, PDFs pessoais, builds, caches ou o repositório Flatpak local.
 - Revisar `git status` e o histórico em busca de documentos ou segredos.
 - Se bancos ou documentos já foram enviados ao remoto, reescrever o histórico

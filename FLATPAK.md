@@ -17,7 +17,7 @@ flatpak run com.leobelisario.LYNXAtlas
 ```
 
 O comando de compilação recria `build-dir`. O pacote instala os scripts
-Python, os arquivos QML necessários e o `icone.png` de 512 × 512 pixels;
+Python, os arquivos QML necessários e os ícones de `assets/icons`;
 não inclui o ambiente virtual, testes, banco de dados atual ou backups.
 O atalho usa o ícone próprio, instalado com o identificador do aplicativo.
 

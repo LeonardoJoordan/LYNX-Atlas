@@ -30,10 +30,16 @@ modules:
     build-commands:
       - install -Dm644 main.py /app/share/lynx-atlas/main.py
       - install -Dm644 bridge.py /app/share/lynx-atlas/bridge.py
-      - mkdir -p /app/share/lynx-atlas/core /app/share/lynx-atlas/ui
+      - mkdir -p /app/share/lynx-atlas/core /app/share/lynx-atlas/ui /app/share/lynx-atlas/assets/icons
       - install -m644 core/*.py /app/share/lynx-atlas/core/
       - install -m644 ui/*.qml /app/share/lynx-atlas/ui/
-      - install -Dm644 icone.png /app/share/icons/hicolor/512x512/apps/com.leobelisario.LYNXAtlas.png
+      - install -m644 assets/icons/*.png /app/share/lynx-atlas/assets/icons/
+      - install -Dm644 assets/icons/lynx-atlas_32.png /app/share/icons/hicolor/32x32/apps/com.leobelisario.LYNXAtlas.png
+      - install -Dm644 assets/icons/lynx-atlas_48.png /app/share/icons/hicolor/48x48/apps/com.leobelisario.LYNXAtlas.png
+      - install -Dm644 assets/icons/lynx-atlas_64.png /app/share/icons/hicolor/64x64/apps/com.leobelisario.LYNXAtlas.png
+      - install -Dm644 assets/icons/lynx-atlas_128.png /app/share/icons/hicolor/128x128/apps/com.leobelisario.LYNXAtlas.png
+      - install -Dm644 assets/icons/lynx-atlas_256.png /app/share/icons/hicolor/256x256/apps/com.leobelisario.LYNXAtlas.png
+      - install -Dm644 assets/icons/lynx-atlas_512.png /app/share/icons/hicolor/512x512/apps/com.leobelisario.LYNXAtlas.png
       - mkdir -p /app/share/doc/lynx-atlas/licenses
       - install -m644 LICENSE README.md THIRD_PARTY_NOTICES.md /app/share/doc/lynx-atlas/
       - install -m644 licenses/* /app/share/doc/lynx-atlas/licenses/

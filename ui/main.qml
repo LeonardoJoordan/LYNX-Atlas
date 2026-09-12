@@ -472,20 +472,37 @@ ApplicationWindow {
                 anchors.margins: 12
                 spacing: 10
 
-                ColumnLayout {
+                RowLayout {
                     Layout.fillWidth: true
-                    spacing: 1
+                    spacing: 9
 
-                    Text {
-                        text: "LYNX Atlas"
-                        color: "#ffffff"
-                        font.pixelSize: 21
-                        font.bold: true
+                    Image {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+                        source: Qt.resolvedUrl("../assets/icons/lynx-atlas_64.png")
+                        fillMode: Image.PreserveAspectFit
+                        mipmap: true
                     }
-                    Text {
-                        text: "Fast PDF Search & Indexing"
-                        color: "#8b8b96"
-                        font.pixelSize: 10
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 1
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: "LYNX Atlas"
+                            color: "#ffffff"
+                            font.pixelSize: 21
+                            font.bold: true
+                            elide: Text.ElideRight
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            text: "Fast PDF Search & Indexing"
+                            color: "#8b8b96"
+                            font.pixelSize: 10
+                            elide: Text.ElideRight
+                        }
                     }
                 }
 
